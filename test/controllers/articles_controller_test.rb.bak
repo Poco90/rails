@@ -15,19 +15,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     get articles_url
     assert_equal article_count, controller.instance_variable_get('@articles').size
     puts "Number of articles in the database: #{article_count}"
-  end  
-
-  require 'benchmark'
-
-  test "site should respond within a reasonable time" do
-    time = Benchmark.realtime do
-      get articles_url
-    end
-  
-    assert_operator time, :<, 0.0, "Response time #{time.round(2)}s was not within a reasonable limit"
   end
-  
-  
   
 
   test "should get index" do
